@@ -22,16 +22,19 @@ echo 150 > /proc/sys/vm/overcommit_ratio
 ```
 `Overswap Extreme Memory`
 ```
-fallocate -l 32G /swapfile2
+fallocate -l 24G /swapfile2
 chmod 600 /swapfile2
 mkswap /swapfile2
 swapon /swapfile2
 ```
-`Overcommit CPU, RAM, dan Swap test`
+------------------------------------------
+- Jika ingin testing atau tidak juga gapapa (Run sampai `Overswap Extreme Memory` saja,karna script dibawah hanya testing)
+  
+`Overcommit CPU, RAM, dan Swap testing`
 ```
 apt install cpulimit stress -y
 ```
 `Run stress test`
 ```
-stress --cpu 16 --io 6 --vm 6 --vm-bytes 4G --timeout 180
+stress --cpu 12 --io 6 --vm 6 --vm-bytes 4G --timeout 90
 ```
